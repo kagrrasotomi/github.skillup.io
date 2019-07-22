@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Open Bluepage</title>
+</head>
+
+<script>
+window.open("http://w3.ibm.com/#/tools","_self");
+window.open("https://w3.ibm.com/bluepages/","_self");
+
+var ie = new ActiveXObject("InternetExplorer.Application");
+ie.visible = true;
+var url="https://w3.ibm.com/bluepages/"
+ie.navigate(url);
+wait_Until_Loaded();
+wait(5000);
+
+var elements = ie.document.getElementsByName( "search-input" ) ;
+elements[2].checked = true ;
+wait(5000);
+elements[0].checked = true ;
+wait(5000);
+
+function wait_Until_Loaded(){
+	while (ie.busy || ie.readyState != 4) {
+		WScript.Sleep(2000);
+	}
+}
+
+function wait(sec){
+	WScript.Sleep(sec);
+}
+
+</script>
+
+<body>
+
+</body>
+</html>
